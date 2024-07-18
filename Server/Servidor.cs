@@ -70,9 +70,7 @@ namespace Server
             {
                 connectedUsers.Remove(user.Username);
                 Console.WriteLine($"User {user.Username} disconnected.");
-            }
-
-            
+            }            
         }
 
         private void BroadcastMessage(string senderUsername, string message)

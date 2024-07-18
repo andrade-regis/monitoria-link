@@ -3,14 +3,16 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35013.160
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server", "Server.csproj", "{535C920E-9942-48E1-AC36-34DA9BCFE5F2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Server", "Server.csproj", "{535C920E-9942-48E1-AC36-34DA9BCFE5F2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "..\Client\Client.csproj", "{F4C68B82-CE45-484F-AF82-A9FC45DD314B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Client", "..\Client\Client.csproj", "{F4C68B82-CE45-484F-AF82-A9FC45DD314B}"
 	ProjectSection(ProjectDependencies) = postProject
 		{535C920E-9942-48E1-AC36-34DA9BCFE5F2} = {535C920E-9942-48E1-AC36-34DA9BCFE5F2}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cliente-WPF", "..\Cliente-WPF\Cliente-WPF.csproj", "{93A00BC0-6174-4631-9980-E5A952E20820}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cliente-WPF", "..\Cliente-WPF\Cliente-WPF.csproj", "{93A00BC0-6174-4631-9980-E5A952E20820}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tela-Aeroporto", "..\Tela-Aeroporto\Tela-Aeroporto.csproj", "{93B41B87-2214-487F-B108-3E66B957A760}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,6 +32,10 @@ Global
 		{93A00BC0-6174-4631-9980-E5A952E20820}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{93A00BC0-6174-4631-9980-E5A952E20820}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{93A00BC0-6174-4631-9980-E5A952E20820}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93B41B87-2214-487F-B108-3E66B957A760}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93B41B87-2214-487F-B108-3E66B957A760}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93B41B87-2214-487F-B108-3E66B957A760}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93B41B87-2214-487F-B108-3E66B957A760}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

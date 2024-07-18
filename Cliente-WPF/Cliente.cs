@@ -6,16 +6,18 @@ using System.Threading.Tasks;
 
 namespace Client
 {
+    using Newtonsoft.Json;
     using System;
     using System.Net.Sockets;
     using System.Text;
     using System.Threading.Tasks;
+    using System.Windows.Controls;
 
     internal class Cliente
     {
         private TcpClient client;
         private NetworkStream stream;
-
+        
         public async Task ConnectAsync(string username)
         {
             client = new TcpClient("localhost", 8000);
@@ -41,7 +43,10 @@ namespace Client
             while ((bytesRead = await stream.ReadAsync(buffer, 0, buffer.Length)) != 0)
             {
                 string message = Encoding.UTF8.GetString(buffer, 0, bytesRead);
-                Console.WriteLine(message);
+
+                var conteudo = JsonConvert.DeserializeObject<Server.JSON.root>(message);
+
+                string aqui = string.Empty;
             }
         }
     }

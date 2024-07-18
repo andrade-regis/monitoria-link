@@ -14,6 +14,7 @@ namespace Cliente_WPF
 {
     using Newtonsoft.Json;
     using Server.JSON;
+    using System.IO;
 
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -21,6 +22,10 @@ namespace Cliente_WPF
     public partial class MainWindow : Window
     {
         private Cliente cliente = null;
+
+        private List<string> nomes = new List<string> {"Miguel", "Théo", "Gael", "Heitor", "Ravi", "Arthur", "Noah"};
+
+        private int contador = 0;
 
         public MainWindow()
         {
@@ -31,8 +36,10 @@ namespace Cliente_WPF
 
         private async void Iniciar()
         {
+            Random random = new Random();
+
             cliente = new Cliente();
-            await cliente.ConnectAsync("Usuário R");
+            await cliente.ConnectAsync(nomes[random.Next(0, nomes.Count - 1)]);
         }
 
         private async void EnviarMensagem()
@@ -44,23 +51,42 @@ namespace Cliente_WPF
 
         private string criarMensagem()
         {
-            root json = new root();
+            contador++;
 
-            json.conteudo.codigoApp = 1;
-            json.conteudo.codigoAção = 1;
+            root root = new root();
 
-            Link link = new Link();
+            root.cabecalho = new Cabecalho { codigoApp = 02, codigoAção = 02 };
 
-            link.id = 1;
-            link.nome = "VIVO";
-            link.sigla = "VV";
-            link.velocidade = "200 Mb";
-            link.linkSegueMonitorado = true;
-            link.linkUp = false;
+            if (contador % 2 == 0)
+            {
+                root.links.Add(new Link
+                {
+                    hora = Convert.ToDateTime("29/06/2024 12:00:00"),
+                    destino = "Manaus",
+                    compania = "GOL",
+                    voo = 3356,
+                    codigoPassagem = "AAL7759",
+                    terminal = 2,
+                    portao = 215,
+                    observacao = "Voo atrasado"
+                });
+            }
+            else
+            {
+                root.links.Add(new Link
+                {
+                    hora = Convert.ToDateTime("29/06/2024 12:00:00"),
+                    destino = "Manaus",
+                    compania = "GOL",
+                    voo = 3356,
+                    codigoPassagem = "AAL7759",
+                    terminal = 2,
+                    portao = 215,
+                    observacao = "Voo atrasado"
+                });
+            }
 
-            json.links.Add(link);
-
-            string conteúdo = JsonConvert.SerializeObject(json);
+            string conteúdo = JsonConvert.SerializeObject(root);
 
             return conteúdo;
         }

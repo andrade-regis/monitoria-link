@@ -8,23 +8,25 @@ namespace Server.JSON
 {
     public class root
     {
-        public content conteudo = new content();
+        public Cabecalho cabecalho = new Cabecalho();
         public List<Link> links = new List<Link>();
     }
 
-    public class content
+    public class Cabecalho
     {
         public int codigoApp { get; set; }  /*Exemplo 00 Servidor -- 01 Admin -- 02 Cliente*/
-        public int codigoAção { get; set; } /*Exemplo 00 Novo Usuário -- 01 Manutenção Link */        
+        public int codigoAção { get; set; } /*Exemplo 00 Novo Usuário -- 01 Manutenção Link  -- 02 Reenvio dos dados*/        
     }    
 
     public class Link
     {
-        public int id { get; set; }
-        public string sigla { get; set; }
-        public string nome { get; set; }
-        public string velocidade { get; set; }
-        public bool linkSegueMonitorado { get; set; }
-        public bool linkUp { get; set; }
+        public DateTime hora { get; set; }
+        public string destino { get; set; }
+        public string compania { get; set; }
+        public int voo { get; set; }
+        public string codigoPassagem { get; set; }
+        public int terminal { get; set; }
+        public int portao { get; set; }
+        public string observacao { get; set; }
     }
 }
